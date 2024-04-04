@@ -6,5 +6,6 @@ public enum Especialidade {
     Funcional,
     Resistencia,
     HIIT,
-    Mobilidade
+    Mobilidade;
+
 }

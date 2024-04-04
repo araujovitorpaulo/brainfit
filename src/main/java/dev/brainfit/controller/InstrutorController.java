@@ -22,18 +22,20 @@ public class InstrutorController {
     }
 
     @GetMapping
-    public Page<DadosConsultaInstrutor> consultar(@PageableDefault Pageable paginacao){
-        return repository.findAllByStatus(paginacao).map(DadosConsultaInstrutor::new);
+    public Page<DadosConsultaInstrutor> consultar(@PageableDefault(sort = {"nome"}) Pageable paginacao){
+        return repository.findAll(paginacao).map(DadosConsultaInstrutor::new);
     }
 
     @PutMapping @Transactional
     public void atualizar(DadosAtualizaInstrutor dados){
-
+        var instrutor = repository.getReferenceById(dados.id());
+        instrutor.atualizarInstrutor(dados);
     }
 
     @DeleteMapping("/{id}") @Transactional
-    public void deletar(@PathVariable Long id){
-
+    public void excluir(@PathVariable Long id){
+        var instrutor = repository.getReferenceById(id);
+        instrutor.excluirInstrutor();
     }
 
 }
