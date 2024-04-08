@@ -14,27 +14,27 @@ import org.springframework.web.bind.annotation.*;
 public class InstrutorController {
 
     @Autowired
-    private InstrutorRepository repository;
+    private InstrutorRepository repo;
 
     @PostMapping @Transactional
     public void cadastrar(@RequestBody DadosCadastroInstrutor dados){
-        repository.save(new Instrutor(dados));
+        repo.save(new Instrutor(dados));
     }
 
     @GetMapping
     public Page<DadosConsultaInstrutor> consultar(@PageableDefault(sort = {"nome"}) Pageable paginacao){
-        return repository.findAll(paginacao).map(DadosConsultaInstrutor::new);
+        return repo.findAll(paginacao).map(DadosConsultaInstrutor::new);
     }
 
     @PutMapping @Transactional
     public void atualizar(DadosAtualizaInstrutor dados){
-        var instrutor = repository.getReferenceById(dados.id());
+        var instrutor = repo.getReferenceById(dados.id());
         instrutor.atualizarInstrutor(dados);
     }
 
     @DeleteMapping("/{id}") @Transactional
     public void excluir(@PathVariable Long id){
-        var instrutor = repository.getReferenceById(id);
+        var instrutor = repo.getReferenceById(id);
         instrutor.excluirInstrutor();
     }
 

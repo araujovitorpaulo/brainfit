@@ -1,59 +1,52 @@
-package dev.brainfit.instrutor;
+package dev.brainfit.aluno;
 
 import dev.brainfit.endereco.Endereco;
-import dev.brainfit.especialidade.Especialidade;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Table(name = "instrutores")
-@Entity(name = "Instrutor")
+@Table(name = "alunos")
+@Entity(name = "Aluno")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 
-public class Instrutor {
+public class Aluno {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+    private Integer idade;
     private String email;
     private String telefone;
-    @Enumerated(EnumType.STRING) private Especialidade especialidade;
-    private Integer idade;
     private String sexo;
     @Embedded private Endereco endereco;
     private Number ativo;
-
-    public Instrutor(DadosCadastroInstrutor dados) {
+    public Aluno(DadosCadastroAluno dados) {
         this.nome = dados.nome();
+        this.idade = dados.idade();
         this.email = dados.email();
         this.telefone = dados.telefone();
-        this.especialidade = dados.especialidade();
-        this.idade = dados.idade();
         this.sexo = dados.sexo();
         this.endereco = new Endereco(dados.endereco());
     }
 
-    public void atualizarInstrutor(DadosAtualizaInstrutor dados) {
-        if (dados.email() != null){
+    public void atualizarAluno(DadosAtualizaAluno dados) {
+        if(dados.email() != null){
             this.email = dados.email();
         }
-        if (dados.telefone() != null){
-            this.telefone = dados.telefone();
+        if(dados.telefone() != null){
+            this.email = dados.telefone();
         }
-        if (dados.especialidade() != null){
-            this.especialidade = dados.especialidade();
-        }
-        if (dados.endereco() != null){
+        if(dados.endereco() != null){
             this.endereco.atualizaEndereco(dados.endereco());
         }
     }
 
-    public void excluirInstrutor(){
+    public void excluirAluno() {
         this.ativo = 0;
     }
 }
