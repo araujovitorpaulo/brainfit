@@ -1,7 +1,7 @@
 package dev.brainfit.aluno;
 
-import dev.brainfit.endereco.Endereco;
+import dev.brainfit.endereco.DadosEndereco;
 
-public record DadosAtualizaAluno(Long id, String email, String telefone, Endereco endereco) {
+public record DadosAtualizaAluno(Long id, String email, String telefone, DadosEndereco endereco) {
 
 }

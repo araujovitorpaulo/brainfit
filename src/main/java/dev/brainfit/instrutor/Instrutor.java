@@ -26,7 +26,7 @@ public class Instrutor {
     private Integer idade;
     private String sexo;
     @Embedded private Endereco endereco;
-    private Number ativo;
+    private Character ativo;
 
     public Instrutor(DadosCadastroInstrutor dados) {
         this.nome = dados.nome();
@@ -54,6 +54,6 @@ public class Instrutor {
     }
 
     public void excluirInstrutor(){
-        this.ativo = 0;
+        this.ativo = 'N';
     }
 }

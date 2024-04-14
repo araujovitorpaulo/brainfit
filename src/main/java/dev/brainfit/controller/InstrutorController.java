@@ -27,7 +27,7 @@ public class InstrutorController {
     }
 
     @PutMapping @Transactional
-    public void atualizar(DadosAtualizaInstrutor dados){
+    public void atualizar(@RequestBody DadosAtualizaInstrutor dados){
         var instrutor = repo.getReferenceById(dados.id());
         instrutor.atualizarInstrutor(dados);
     }

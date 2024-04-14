@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "id")
 
 public class Aluno {
-
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
@@ -24,7 +23,8 @@ public class Aluno {
     private String telefone;
     private String sexo;
     @Embedded private Endereco endereco;
-    private Number ativo;
+    private Character ativo;
+    
     public Aluno(DadosCadastroAluno dados) {
         this.nome = dados.nome();
         this.idade = dados.idade();
@@ -47,6 +47,6 @@ public class Aluno {
     }
 
     public void excluirAluno() {
-        this.ativo = 0;
+        this.ativo = 'N';
     }
 }
