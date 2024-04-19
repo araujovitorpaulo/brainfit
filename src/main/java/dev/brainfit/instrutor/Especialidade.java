@@ -1,4 +1,4 @@
-package dev.brainfit.especialidade;
+package dev.brainfit.instrutor;
 
 public enum Especialidade {
     Hipertrofia,

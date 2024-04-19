@@ -1,7 +1,6 @@
 package dev.brainfit.instrutor;
 
 import dev.brainfit.endereco.Endereco;
-import dev.brainfit.especialidade.Especialidade;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
