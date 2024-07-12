@@ -1,14 +1,14 @@
-create sequence academias_seq start with 1 increment by 1;
+CREATE SEQUENCE academias_seq START 1 INCREMENT 1;
 
-create table academias(
-    id number default academias_seq.nextval,
-    nome varchar(100) not null,
-    telefone varchar(20) not null unique,
-    logradouro varchar(100) not null,
-    bairro varchar(100) not null,
-    cep varchar(15) not null,
-    cidade varchar(100) not null,
-    uf char(2) not null,
-    complemento varchar(100),
-    numero varchar(20),
-    primary key(id));
+CREATE TABLE academias (
+    id INT DEFAULT nextval('academias_seq') PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    telefone VARCHAR(20) NOT NULL UNIQUE,
+    logradouro VARCHAR(100) NOT NULL,
+    bairro VARCHAR(100) NOT NULL,
+    cep VARCHAR(15) NOT NULL,
+    cidade VARCHAR(100) NOT NULL,
+    uf CHAR(2) NOT NULL,
+    complemento VARCHAR(100),
+    numero VARCHAR(20)
+);
