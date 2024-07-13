@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-BrainfitApplication<brainfit>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "dev.brainfit.BrainfitApplication",
+            "projectName": "brainfit",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
